@@ -35,8 +35,8 @@ public abstract class BaseShape implements java.io.Serializable {
 	protected Point e_point = new Point();	// 绘制终点坐标
 	protected Color color = Color.BLACK;	// 颜色
 	protected float thick = 1.0f;			// 粗细
-	protected double width = 0.0d;			// 起点与终点水平方向的距离
-	protected double height = 0.0d;			// 起点与终点垂直方向的距离
+	protected float width = 0.0f;			// 起点与终点水平方向的距离
+	protected float height = 0.0f;			// 起点与终点垂直方向的距离
 	// 图片绘制起点和终点的两个点形成的一元二次方程y = k*x + b
 	/**
 	 * 二元一次方程类型
@@ -56,8 +56,8 @@ public abstract class BaseShape implements java.io.Serializable {
 	 * </ul>
 	 */
 	protected int direction = 0;
-	protected double k = 0.0d;	// 系数
-	protected double b = 0.0d;	// 常量
+	protected float k = 0.0f;	// 系数
+	protected float b = 0.0f;	// 常量
 	
 	/**
 	 * 构造并初始化一个基本图形
