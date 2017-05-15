@@ -84,15 +84,16 @@ public abstract class BaseShape implements java.io.Serializable {
 	
 	/**
 	 * 判断点(x,y)是否在图形范围内
-	 * @param x x坐标
-	 * @param y y坐标
-	 * @return  true  范围内<br>
-	 * 			false 范围外
+	 * @param x 点x坐标
+	 * @param y 点y坐标
+	 * @return  true  点在图形范围内<br>
+	 * 			false 点在图形范围外
 	 */
 	public abstract Boolean contains(int x, int y);
 	
 	/**
 	 * 修改图形的大小
+	 * @param len 改变的值 - len为正，则图形增大；为负，则图形变小
 	 */
 	public abstract void editShapeSize(int len);
 	
