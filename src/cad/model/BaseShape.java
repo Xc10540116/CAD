@@ -76,6 +76,54 @@ public abstract class BaseShape implements java.io.Serializable {
 	}
 	
 	/**
+	 * 获取当前图形绘制的起始点
+	 * @return 当前图形绘制的起始点
+	 * @see BaseShape#setB_point(int, int)
+	 */
+	public Point getB_point() {
+		return b_point;
+	}
+
+	/**
+	 * 设置当前图形绘制的起始点
+	 * @param x 坐标点x
+	 * @param y 坐标点y
+	 * @see BaseShape#getB_point()
+	 */
+	public void setB_point(int x, int y) {
+		b_point.x = x;
+		b_point.y = y;
+	}
+
+	/**
+	 * 获取当前图形绘制的终点
+	 * @return 当前图形绘制的终点
+	 * @see BaseShape#setE_point(int, int)
+	 */
+	public Point getE_point() {
+		return e_point;
+	}
+
+	/**
+	 * 设置当前图形绘制的终点
+	 * @param x 坐标点x
+	 * @param y 坐标点y
+	 * @see BaseShape#getE_point()
+	 */
+	public void setE_point(int x, int y) {
+		e_point.x = x;
+		e_point.y = y;
+	}
+	
+	public void setLocation(int b_x, int b_y, int e_x, int e_y) {
+		b_point.x = b_x;
+		b_point.y = b_y;
+		e_point.x = e_x;
+		e_point.y = e_y;
+		setCoefficient();
+	}
+
+	/**
 	 * 利用<code>Graphics</code>包含的各种函数来绘制形状
 	 * @param graphics
 	 * @see java.awt.Graphics2D
@@ -113,6 +161,10 @@ public abstract class BaseShape implements java.io.Serializable {
 	public void setCoefficient() {
 		width = e_point.x - b_point.x;
 		height = e_point.y - b_point.y;
+		setCoefficient(width, height);
+	}
+	
+	protected void setCoefficient(Float width, Float height) {
 		if(width == 0) {
 			coordinate = 1;
 			direction = height > 0 ? 1 : -1;
