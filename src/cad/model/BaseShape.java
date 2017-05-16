@@ -206,12 +206,43 @@ public abstract class BaseShape implements java.io.Serializable {
 		point.x = x;
 		point.y = y;
 	}
+
+	/**
+     * 获取当前图形的颜色
+     * @return    当前图形的颜色
+     * @see       java.awt.Color
+     * @see       BaseShape#setColor(Color)
+     */
+	public Color getColor() {
+		return color;
+	}
+
+	/**
+     * 将图形的当前颜色替换为指定的颜色。使此图形的后续图形操作 
+     * 都使用此指定颜色。
+     * @param     c   新的图形颜色。
+     * @see       java.awt.Color
+     * @see       BaseShape#getColor
+     */
+	public void setColor(Color color) {
+		this.color = color;
+	}
+
+	/**
+     * 获取当前图形的线条粗细
+     * @return	当前图形的线条粗细
+     * @see   	BaseShape#setThick(Float)
+     */
+	public Float getThick() {
+		return thick;
+	}
 	
 	/**
 	 * 设置图形的粗细。
 	 * <br>
 	 * 图形的粗细最小值为1.0f
 	 * @param len 改变量
+     * @see   BaseShape#getThick
 	 */
 	public void setThick(int len) {
 		thick = thick + len < 1 ? 1.0f : thick + len;
