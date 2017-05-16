@@ -6,7 +6,10 @@ import java.awt.event.*;
 import cad.view.DrawPanel;
 
 public class Draw extends MouseAdapter {
-	
+
+	protected Point point = new Point();
+	protected Color color;
+	protected Float thick;
 	protected BaseShape shape;
 	protected Graphics2D g;
 	protected DrawPanel panel;
@@ -37,8 +40,8 @@ public class Draw extends MouseAdapter {
 		this.panel = panel;
 		panel.setVisible(true);
 		this.g = (Graphics2D)panel.getGraphics();
-		shape.color = panel.getDrawColor();
-		shape.thick = panel.getThick();
+		this.color = panel.getDrawColor();
+		this.thick = panel.getThick();
 	}
 	
 	/**
@@ -47,8 +50,8 @@ public class Draw extends MouseAdapter {
 	@Override
 	public void mousePressed(MouseEvent e) {
 		if(panel.getNow_shape_index() == -1) {
-			shape.point.x = e.getX();
-			shape.point.y = e.getY();
+			point.x = e.getX();
+			point.y = e.getY();
 		}
 	}
 
