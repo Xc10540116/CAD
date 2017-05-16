@@ -28,6 +28,9 @@ import java.awt.*;
  */
 public abstract class BaseShape implements java.io.Serializable {
 
+	/**
+	 * CAD 1.1 serialVersionUID
+	 */
 	private static final long serialVersionUID = 3023202635680952583L;
 
 	protected Point point = new Point();	// 绘制起点坐标
@@ -112,26 +115,6 @@ public abstract class BaseShape implements java.io.Serializable {
 	}
 
 	/**
-	 * 获取当前图形绘制的起始点
-	 * @return 当前图形绘制的起始点
-	 * @see BaseShape#setPoint(int, int)
-	 */
-	public Point getPoint() {
-		return point;
-	}
-
-	/**
-	 * 设置当前图形绘制的起始点
-	 * @param x 坐标点x
-	 * @param y 坐标点y
-	 * @see BaseShape#getPoint()
-	 */
-	public void setPoint(int x, int y) {
-		point.x = x;
-		point.y = y;
-	}
-
-	/**
 	 * 利用<code>Graphics</code>包含的各种函数来绘制形状
 	 * @param graphics
 	 * @see java.awt.Graphics2D
@@ -179,8 +162,8 @@ public abstract class BaseShape implements java.io.Serializable {
 	}
 	
 	/**
-	 * 将图形的一元二次方程系数和常量设置为指定的系数和常量。
-	 * 使此图形的后续图形操作都使用此指定的系数和常量。
+	 * 将图形的一元二次方程类型、方向、系数和常量设置为指定的系数和常量。<br>
+	 * 使此图形的后续图形操作都使用此指定的类型、方向、系数和常量。
 	 */
 	private void setCoefficient() {
 		if(width == 0) {
@@ -197,5 +180,35 @@ public abstract class BaseShape implements java.io.Serializable {
 				+ ", height:" + height
 				+ ", coordinate:" + coordinate 
 				+ ", direction:" + direction);
+	}
+
+	/**
+	 * 获取当前图形绘制的起始点
+	 * @return 当前图形绘制的起始点
+	 * @see BaseShape#setPoint(int, int)
+	 */
+	public Point getPoint() {
+		return point;
+	}
+
+	/**
+	 * 设置当前图形绘制的起始点
+	 * @param x 坐标点x
+	 * @param y 坐标点y
+	 * @see BaseShape#getPoint()
+	 */
+	public void setPoint(int x, int y) {
+		point.x = x;
+		point.y = y;
+	}
+	
+	/**
+	 * 设置图形的粗细。
+	 * <br>
+	 * 图形的粗细最小值为1.0f
+	 * @param len 改变量
+	 */
+	public void setThick(int len) {
+		thick = thick + len < 1 ? 1.0f : thick + len;
 	}
 }
