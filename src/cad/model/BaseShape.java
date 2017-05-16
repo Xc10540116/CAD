@@ -163,7 +163,12 @@ public abstract class BaseShape implements java.io.Serializable {
 	
 	/**
 	 * 将图形的一元二次方程类型、方向、系数和常量设置为指定的系数和常量。<br>
-	 * 使此图形的后续图形操作都使用此指定的类型、方向、系数和常量。
+	 * 使此图形的后续图形操作都使用此指定的类型、方向、系数和常量。<br>
+	 * <ul>
+	 * <li>方程类型分为x=?、y=?、y=kx+b三种
+	 * <li>方程方向用于类型为x=?、y=?
+	 * <li>系数和常量用于y=kx+b
+	 * </ul>
 	 */
 	private void setCoefficient() {
 		if(width == 0) {
