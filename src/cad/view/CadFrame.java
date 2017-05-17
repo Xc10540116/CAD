@@ -31,6 +31,7 @@ import javax.swing.border.TitledBorder;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.filechooser.FileSystemView;
 
+import cad.Constant;
 import cad.controller.*;
 import cad.model.BaseShape;
 import cad.model.Draw;
@@ -41,8 +42,8 @@ public class CadFrame extends JFrame {
 	
 	private JPanel toolPanel = new JPanel();
 	private JPanel filePanel;
-	private JButton open = new JButton("打开", new ImageIcon("src/cad/images/open.png"));
-	private JButton save = new JButton("保存", new ImageIcon("src/cad/images/open.png"));
+	private JButton open = new JButton("打开", new ImageIcon(Constant.getImagePath("open.png")));
+	private JButton save = new JButton("保存", new ImageIcon(Constant.getImagePath("open.png")));
 	private JPanel shapePanel;
 	private JPanel colorPanel;
 	private DrawPanel drawPanel = new DrawPanel();
@@ -279,7 +280,7 @@ public class CadFrame extends JFrame {
 				drawPanel.setFocusable(true);
 				String val = JOptionPane.showInputDialog(
 			            "Please input a value?");
-				((DrawWords)drawList.get("words")).setWord(val);
+				((DrawWords)drawList.get("words")).setStr(val);
 			}
 		});
 	}
@@ -391,7 +392,7 @@ public class CadFrame extends JFrame {
 			setToolTipText(tipText);
 			setPreferredSize(new Dimension(50, 50));
 			setFont(new Font("MS UI Gothic", Font.PLAIN, 24));
-			ImageIcon icon = new ImageIcon("src/cad/images/" + img + ".png"); 
+			ImageIcon icon = new ImageIcon(Constant.getImagePath(img + ".png")); 
 			setIcon(icon);
 			addKeyListener(drawPanel.keyListener);
 		}

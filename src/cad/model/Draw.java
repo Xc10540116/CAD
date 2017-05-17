@@ -5,12 +5,13 @@ import java.awt.event.*;
 
 import cad.view.DrawPanel;
 
-public class Draw extends MouseAdapter {
+public abstract class Draw extends MouseAdapter {
 
-	protected Point point = new Point();
-	protected Color color;
-	protected Float thick;
-	protected BaseShape shape;
+	protected Point point = new Point();	// 绘制起点坐标
+	protected Color color = Color.BLACK;	// 颜色
+	protected float thick = 1.0f;			// 粗细
+	protected float width = 0.0f;			// 起点与终点水平方向的距离
+	protected float height = 0.0f;			// 起点与终点垂直方向的距离
 	protected Graphics2D g;
 	protected DrawPanel panel;
 	

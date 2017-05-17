@@ -34,6 +34,7 @@ public class DrawPanel extends JPanel {
 	public DrawPanel() {
 		setBackground(Color.WHITE);
 		setPreferredSize(new Dimension(700, 460));
+		addMouseListener(mouseListener);
 		addKeyListener(keyListener);
 //		setFocusable(true);
 	}
@@ -160,7 +161,9 @@ public class DrawPanel extends JPanel {
 		@Override
 		public void mouseClicked(MouseEvent e) {
 			// TODO Auto-generated method stub
-			getShape(e);
+//			getShape(e);
+			for( BaseShape shape : shapeList)
+				System.out.println(shape.toString());
 		}
 		
 		private void getShape(MouseEvent e) {

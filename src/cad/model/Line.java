@@ -1,6 +1,7 @@
 package cad.model;
 
 import java.awt.BasicStroke;
+import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.Point;
 import java.awt.geom.Line2D;
@@ -9,7 +10,12 @@ public class Line extends BaseShape {
 
 	private static final long serialVersionUID = -2028648010081272032L;
 	
-	private Point e_point;	// 绘制终点
+	private Point e_point = new Point();	// 绘制终点
+	
+	public Line(int x, int y, int x1, int y1, Color color, float thick) {
+		super(x, y, color, thick, x1 - x, y1 - y);
+		e_point.setLocation(x1, y1);
+	}
 
 	@Override
 	public void draw(Graphics2D graphics) {
@@ -32,9 +38,6 @@ public class Line extends BaseShape {
 		Double len2 = line.ptSegDist(x, y);
 		// 设置允许点击的距离
 		Double inline = 3.0d + thick;
-		System.out.println("(" + x + "," + y + ")");
-		System.out.println(len2);;
-		System.out.println(inline);
 		// 如果点到线的距离 小于 允许点击的距离
 		if(len2 < inline)
 			// 点在线上
